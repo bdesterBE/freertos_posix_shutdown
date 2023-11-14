@@ -33,3 +33,12 @@ target_include_directories(main PRIVATE
     ${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS/Source/portable/ThirdParty/GCC/Posix
     ${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS/Source/portable/ThirdParty/GCC/Posix/utils
 )
+
+# Catch2
+add_subdirectory(${CMAKE_SOURCE_DIR}/Catch2 Catch2)
+
+add_executable(unit_tests
+    ${CMAKE_SOURCE_DIR}/tests.cpp
+)
+
+target_link_libraries(unit_tests PRIVATE Catch2::Catch2)
